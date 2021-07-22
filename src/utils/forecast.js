@@ -8,8 +8,8 @@ const forecast = (latitude, longitude, callback) => {
         } else if (response.body.error) {
             callback(`${response.body.error.type}. ${response.body.error.info}`, undefined);
         } else {
-            const {weather_descriptions: description, temperature, precip} = response.body.current;
-            callback(undefined, `${description[0]}. It is currently ${temperature} degrees out. There is a ${precip} % chance of rain`)
+            const {weather_descriptions: description, temperature, precip, visibility} = response.body.current;
+            callback(undefined, `${description[0]}. It is currently ${temperature} degrees out. There is a ${precip} % chance of rain. The visibility is ${visibility}!`)
         }
     })
 
